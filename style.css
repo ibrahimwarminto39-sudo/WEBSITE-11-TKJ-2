@@ -1,0 +1,1761 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background: #000;
+
+  /* penting untuk mobile */
+  -webkit-text-size-adjust: 100%;
+}
+
+
+/* ===============================
+   BACKGROUND GALAXY CONTAINER
+================================ */
+.bg-galaxy {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ===============================
+   SIANG → MALAM TRANSISI
+================================ */
+.sky-day,
+.sky-night {
+  position: absolute;
+  inset: 0;
+  animation: dayNight 20s infinite alternate;
+}
+
+.sky-day {
+  background: linear-gradient(
+    to bottom,
+    #87ceeb,
+    #ffffff 60%,
+    #ffe066
+  );
+  z-index: 1;
+}
+
+.sky-night {
+  background: radial-gradient(
+    circle at center,
+    #6a00ff,
+    #2b005f,
+    #000000
+  );
+  z-index: 2;
+  opacity: 0;
+}
+
+@keyframes dayNight {
+  0% { opacity: 0; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* ===============================
+   BINTANG
+================================ */
+.stars {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  animation: starMove linear infinite;
+}
+
+.stars-small {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 100px 150px, #ffd700, transparent),
+    radial-gradient(1px 1px at 200px 80px, #fff, transparent);
+  animation-duration: 80s;
+  opacity: .6;
+}
+
+.stars-medium {
+  background-image:
+    radial-gradient(2px 2px at 50px 100px, #fff, transparent),
+    radial-gradient(2px 2px at 180px 200px, #ffd700, transparent),
+    radial-gradient(2px 2px at 300px 50px, #fff, transparent);
+  animation-duration: 120s;
+  opacity: .8;
+}
+
+.stars-big {
+  background-image:
+    radial-gradient(3px 3px at 150px 250px, #fff, transparent),
+    radial-gradient(3px 3px at 400px 120px, #ffd700, transparent);
+  animation-duration: 160s;
+  opacity: 1;
+}
+
+@keyframes starMove {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-2000px); }
+}
+
+/* ===============================
+   METEOR HUJAN
+================================ */
+.meteor {
+  position: absolute;
+  top: -200px;
+  width: 3px;
+  height: 180px;
+  background: linear-gradient(
+    to bottom,
+    #fff,
+    rgba(255,255,255,0)
+  );
+  transform: rotate(45deg);
+  animation: meteorFall 3s linear infinite;
+  opacity: .9;
+}
+
+.meteor:nth-child(7) {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.meteor:nth-child(8) {
+  left: 40%;
+  animation-delay: 1s;
+}
+
+.meteor:nth-child(9) {
+  left: 60%;
+  animation-delay: 2s;
+}
+
+.meteor:nth-child(10) {
+  left: 80%;
+  animation-delay: 3s;
+}
+
+@keyframes meteorFall {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+/* ===============================
+   WELCOME SCREEN
+================================ */
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #111 0%, #000 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 4.5s;
+}
+
+/* ===============================
+   TEKS WELCOME
+================================ */
+.welcome-text {
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 6px;
+}
+
+/* HURUF */
+.welcome-text span {
+  display: inline-block;
+  font-size: clamp(24px, 6vw, 54px);
+  color: #fff;
+  animation: waveGlow 1.5s ease-in-out infinite;
+  text-shadow:
+    0 0 10px rgba(5, 108, 226, 0.7),
+    0 0 20px rgba(76, 0, 255, 0.5);
+}
+
+/* DELAY PER HURUF */
+.welcome-text span:nth-child(1) { animation-delay: 0s; }
+.welcome-text span:nth-child(2) { animation-delay: .1s; }
+.welcome-text span:nth-child(3) { animation-delay: .2s; }
+.welcome-text span:nth-child(4) { animation-delay: .3s; }
+.welcome-text span:nth-child(5) { animation-delay: .4s; }
+.welcome-text span:nth-child(6) { animation-delay: .5s; }
+.welcome-text span:nth-child(7) { animation-delay: .6s; }
+.welcome-text span:nth-child(8) { animation-delay: .7s; }
+.welcome-text span:nth-child(9) { animation-delay: .8s; }
+.welcome-text span:nth-child(10) { animation-delay: .9s; }
+.welcome-text span:nth-child(11) { animation-delay: 1s; }
+.welcome-text span:nth-child(12) { animation-delay: 1.1s; }
+.welcome-text span:nth-child(13) { animation-delay: 1.2s; }
+.welcome-text span:nth-child(14) { animation-delay: 1.3s; }
+.welcome-text span:nth-child(15) { animation-delay: 1.4s; }
+.welcome-text span:nth-child(16) { animation-delay: 1.5s; }
+.welcome-text span:nth-child(17) { animation-delay: 1.6s; }
+.welcome-text span:nth-child(18) { animation-delay: 1.7s; }
+.welcome-text span:nth-child(19) { animation-delay: 1.8s; }
+
+/* ===============================
+   ANIMASI TEKS
+================================ */
+@keyframes waveGlow {
+  0% {
+    transform: translateY(0);
+    color: #3d087a;
+  }
+  50% {
+    transform: translateY(-10px);
+    color: #3900d6;
+  }
+  100% {
+    transform: translateY(0);
+    color: #ffffff;
+  }
+}
+
+/* ===============================
+   HILANG OTOMATIS
+================================ */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/*TDARISJNIZXjZZ*/
+/* ===============================
+   FONT MODERN (OPSIONAL)
+   (Jika offline, tetap aman)
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap');
+
+/* ===============================
+   GLITCH TITLE
+================================ */
+.glitch {
+  position: relative;
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: clamp(36px, 8vw, 72px);
+  font-weight: 800;
+  letter-spacing: 6px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* TEKS DUPLIKAT (ERROR EFFECT) */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* MERAH */
+.glitch::before {
+  color: #ff1e1e;
+  z-index: -1;
+  animation: glitchRed 2s infinite linear alternate-reverse;
+}
+
+/* BIRU */
+.glitch::after {
+  color: #1e90ff;
+  z-index: -2;
+  animation: glitchBlue 2.5s infinite linear alternate-reverse;
+}
+
+/* ===============================
+   ANIMASI GLITCH
+================================ */
+@keyframes glitchRed {
+  0%   { transform: translate(0); opacity: 1; }
+  20%  { transform: translate(-2px, -2px); opacity: .8; }
+  40%  { transform: translate(-4px, 2px); opacity: .6; }
+  60%  { transform: translate(2px, -1px); opacity: .8; }
+  80%  { transform: translate(1px, 2px); opacity: .7; }
+  100% { transform: translate(0); opacity: 1; }
+}
+
+@keyframes glitchBlue {
+  0%   { transform: translate(0); opacity: 1; }
+  20%  { transform: translate(2px, 2px); opacity: .8; }
+  40%  { transform: translate(4px, -2px); opacity: .6; }
+  60%  { transform: translate(-2px, 1px); opacity: .8; }
+  80%  { transform: translate(-1px, -2px); opacity: .7; }
+  100% { transform: translate(0); opacity: 1; }
+}
+
+/* ===============================
+   KEDIP ERROR RANDOM
+================================ */
+.glitch {
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: .8; }
+  94% { opacity: .4; }
+  96% { opacity: .9; }
+  98% { opacity: .5; }
+}
+
+/*sjzy*/
+/* ===============================
+   LOGO KELAS BULAT
+================================ */
+.class-logo {
+  width: 130px;
+  height: 130px;
+  margin: 25px auto 40px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(
+    135deg,
+    #ff0000,
+    #000000,
+    #ff0000
+  );
+  box-shadow:
+    0 0 15px rgba(255,0,0,.7),
+    0 0 30px rgba(255,0,0,.4);
+  animation: rotateGlow 6s linear infinite;
+}
+
+/* FOTO */
+.class-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #000000;
+}
+
+/* ===============================
+   ANIMASI PUTAR HALUS
+================================ */
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+  .class-logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+/*logo ig*/
+/* ===============================
+   INSTAGRAM FLOAT BUTTON
+================================ */
+.ig-float {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(45deg,#ff0066,#ffcc00);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  box-shadow: 0 0 15px rgba(255,0,0,.6);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.ig-float img {
+  width: 26px;
+  height: 26px;
+}
+
+.ig-float:hover {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 0 25px rgba(255,0,0,.9);
+}
+
+
+
+
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 52px);
+  letter-spacing: 4px;
+}
+
+.hero p {
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.nav-item {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.nav-item:hover {
+  color: #fff;
+}
+
+.nav-item.active {
+  color: #fff;
+  border-bottom: 3px solid #7a0000;
+}
+
+/* CONTENT */
+.content {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.page {
+  display: none;
+  animation: fade 0.5s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+/* ===============================
+   JUDUL PIKET
+================================ */
+#piket h2 {
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+  color: #ffffff;
+
+  /* Animasi */
+  animation: titleFloat 3s ease-in-out infinite;
+  text-shadow:
+    0 0 8px rgba(74, 198, 236, 0.6),
+    0 0 16px rgba(0, 38, 255, 0.3);
+}
+
+/* ===============================
+   ANIMASI HALUS
+================================ */
+@keyframes titleFloat {
+  0% {
+    transform: translateY(0);
+    letter-spacing: 4px;
+  }
+  50% {
+    transform: translateY(-6px);
+    letter-spacing: 6px;
+  }
+  100% {
+    transform: translateY(0);
+    letter-spacing: 4px;
+  }
+}
+
+/* ===============================
+   LIST JADI KARTU (TENGAH)
+================================ */
+#piket .list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  text-align: center;
+}
+
+/* ===============================
+   KARTU HARI
+================================ */
+#piket .day {
+  position: relative;
+  padding: 22px 24px;
+  border-radius: 16px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ===============================
+   WARNA PER HARI
+================================ */
+#piket .senin  { background: linear-gradient(135deg,#7a0000,#b30000); }
+#piket .selasa { background: linear-gradient(135deg,#004aad,#0066ff); }
+#piket .rabu   { background: linear-gradient(135deg,#1b5e20,#2e7d32); }
+#piket .kamis  { background: linear-gradient(135deg,#4a148c,#7b1fa2); }
+#piket .jumat  { background: linear-gradient(135deg,#ff6f00,#ff8f00); }
+
+/* ===============================
+   TEKS HARI & NAMA
+================================ */
+#piket .day strong {
+  display: block;
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   EFEK BINTANG ✨
+================================ */
+
+/* BINTANG ATAS */
+#piket .day::before {
+  content: "✦ ✧ ✦ ✧";
+  position: absolute;
+  top: 18%;
+  left: -40%;
+  font-size: 18px;
+  opacity: 0.8;
+  animation: starMove 10s linear infinite;
+}
+
+/* BINTANG BAWAH */
+#piket .day::after {
+  content: "✧ ✦ ✧";
+  position: absolute;
+  top: 60%;
+  left: -50%;
+  font-size: 14px;
+  opacity: 0.6;
+  animation: starMove 16s linear infinite;
+}
+
+/* ===============================
+   ANIMASI GERAK BINTANG
+================================ */
+@keyframes starMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(160vw);
+  }
+}
+
+/* himm*/
+.profile-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+}
+
+.profile-card img {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.guru-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.guru {
+  border: 3px solid #ffcc66;
+  max-width: 240px;
+}
+
+.leader-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.siswa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.profile-card {
+  background: #b9adff;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.profile-card img {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+}
+
+/* small image hover playfulness */
+.profile-card img:hover {
+  transform: translateY(-6px) scale(1.04) rotate(-3deg);
+}
+/*jan di apa apain dlu*/
+
+
+
+
+
+
+
+/* GALERI */
+/* ===============================
+   FRAME FOTO 16:9 (WAJIB)
+================================ */
+.album-section {
+  margin-top: 80px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* JUDUL */
+.album-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow:
+    0 0 10px rgba(255,0,0,.6),
+    0 0 20px rgba(255,0,0,.4);
+}
+
+/* FRAME BESAR */
+.album-frame {
+  position: relative;
+  width: min(90%, 720px);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FRAME FOTO 16:9 */
+.photo-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #000;
+  border: 4px solid #c9a24d;
+  box-shadow: 0 20px 40px rgba(0,0,0,.7);
+}
+
+/* FOTO */
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeZoom .8s ease;
+}
+
+/* TOMBOL NAV */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.6);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  padding: 12px 18px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: .3s;
+  z-index: 5;
+}
+
+.nav-btn:hover {
+  background: rgba(255,0,0,.8);
+}
+
+.nav-btn.left {
+  left: -60px;
+}
+
+.nav-btn.right {
+  right: -60px;
+}
+
+/* INFO */
+.album-info {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: .8;
+}
+
+/* ANIMASI FOTO */
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-btn.left {
+    left: 10px;
+  }
+  .nav-btn.right {
+    right: 10px;
+  }
+}
+
+
+/* ===============================
+   KRITIK & SARAN STYLE
+================================ */
+.feedback-section {
+  margin-top: 80px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.feedback-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+/* FORM */
+.feedback-form {
+  background: rgba(0,0,0,.6);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 2px solid #7a0000;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  background: #111;
+  border: 2px solid #333;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  outline: none;
+  border-color: #ff2a2a;
+}
+
+.feedback-form button {
+  background: linear-gradient(45deg,#ff2a2a,#ffcc00);
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.feedback-form button:hover {
+  transform: scale(1.05);
+}
+
+/* PESAN MASUK */
+.feedback-box {
+  background: rgba(255,255,255,.05);
+  border-radius: 16px;
+  padding: 20px;
+  border: 2px solid #444;
+}
+
+.feedback-box h3 {
+  margin-bottom: 15px;
+}
+
+/* PESAN */
+.feedback-item {
+  background: #111;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  text-align: left;
+  animation: fadeIn .4s ease;
+}
+
+.feedback-item strong {
+  color: #ffcc00;
+  display: block;
+  margin-bottom: 6px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ===============================
+   PLAYLIST BAR KANAN (KECIL)
+================================ */
+.playlist-bar {
+  position: fixed;
+  right: 0;              /* pindah ke kanan */
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, #ff2a2a, #7a0000);
+  color: #fff;
+  padding: 10px 8px;     /* diperkecil */
+  border-radius: 16px 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  z-index: 9999;
+  transition: all .4s ease;
+}
+
+/* ICON */
+.music-icon {
+  font-size: 16px;       /* diperkecil */
+  animation: musicBeat 1.5s infinite;
+}
+
+/* TEXT */
+.playlist-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 12px;       /* diperkecil */
+}
+
+/* HOVER */
+.playlist-bar:hover {
+  padding-right: 14px;
+  background: linear-gradient(180deg, #ffcc00, #ff2a2a);
+  box-shadow: 0 0 20px rgba(255,0,0,.6);
+}
+
+/* ANIMASI ICON */
+@keyframes musicBeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+/* BAR KIRI BAWAH */
+.struktur-bar {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: linear-gradient(135deg, #7a0000, #c62828);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.5);
+  animation: pulse 2s infinite;
+  z-index: 999;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* OVERLAY */
+.struktur-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* CONTAINER */
+.struktur-container {
+  background: linear-gradient(160deg, #ffd6e8, #d7ecff);
+  border-radius: 24px;
+  padding: 30px;
+  max-width: 1000px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: zoomIn .6s ease;
+  position: relative;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* CLOSE */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* TITLE */
+.struktur-title {
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.struktur-title span {
+  color: #7a0000;
+}
+
+/* ROW */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.row.center {
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+  animation: float 3s ease-in-out infinite;
+}
+
+.card.wali {
+  background: #ffe082;
+  font-size: 18px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.struktur-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 10px;
+  }
+
+
+/* ===============================
+   JADWAL PELAJARAN
+================================ */
+/* ===============================
+   JADWAL PELAJARAN v2
+   TANPA UBAH CLASS & ID
+================================ */
+
+#pelajaran {
+  margin-top: 80px;
+  text-align: center;
+}
+
+/* JUDUL */
+#pelajaran h2 {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900;
+  letter-spacing: 5px;
+  margin-bottom: 40px;
+  position: relative;
+  animation: titlePulse 2.5s infinite;
+}
+
+@keyframes titlePulse {
+  0% { text-shadow: 0 0 8px rgba(255,255,255,.4); }
+  50% { text-shadow: 0 0 22px rgba(122,0,0,.8); }
+  100% { text-shadow: 0 0 8px rgba(255,255,255,.4); }
+}
+
+/* LIST */
+#pelajaran .list {
+  list-style: none;
+  padding: 0;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ITEM HARI */
+#pelajaran .list li {
+  background: linear-gradient(135deg, #0d0d0d, #000);
+  border: 3px solid #7a0000;
+  margin: 18px 0;
+  padding: 20px 26px;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: slideFade .8s ease forwards;
+}
+
+/* Animasi delay */
+#pelajaran .list li:nth-child(1) { animation-delay: .2s; }
+#pelajaran .list li:nth-child(2) { animation-delay: .4s; }
+#pelajaran .list li:nth-child(3) { animation-delay: .6s; }
+#pelajaran .list li:nth-child(4) { animation-delay: .8s; }
+#pelajaran .list li:nth-child(5) { animation-delay: 1s; }
+
+@keyframes slideFade {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* EFEK GARIS CAHAYA */
+#pelajaran .list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(10, 10, 10, 0.15),
+    transparent
+  );
+  transition: .6s;
+}
+
+#pelajaran .list li:hover::before {
+  left: 100%;
+}
+
+/* HOVER */
+#pelajaran .list li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(122,0,0,.6);
+  transition: .3s;
+}
+
+/* HARI TEBAL */
+#pelajaran .list li strong {
+  color: #c9a24d;
+  font-size: 18px;
+}
+
+/* ===============================
+   SLIDE BANNER KIRI
+================================ */
+.slide-banner {
+  position: fixed;
+  top: 5%;
+  left: -350px; /* mulai dari luar layar */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #00ff66;
+  border-radius: 0 14px 14px 0;
+
+  color: #00ff66;
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-size: 18px;
+
+  box-shadow:
+    0 0 12px rgba(0,255,102,.8),
+    0 0 24px rgba(0,255,102,.4);
+
+  z-index: 9999;
+  cursor: pointer;
+
+  opacity: 0;
+}
+
+/* logo */
+.slide-banner img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* aktif (muncul) */
+.slide-banner.show {
+  animation: slideInOut 6s ease forwards;
+  opacity: 1;
+}
+
+/* animasi masuk → diam → keluar */
+@keyframes slideInOut {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  15% {
+    transform: translateX(350px);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(350px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .glitch {
+    letter-spacing: 3px;
+  }
+
+  .welcome-text span {
+    letter-spacing: 3px;
+  }
+
+  h1, h2 {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+}
+
+
+/* ===============================
+   PROFILE CARD – MOBILE SAFE v2
+================================ */
+/* ==============================
+   PROFILE CARD UPGRADE V3
+   (Tambahkan di bawah CSS lama)
+============================== */
+
+/* === LAYOUT === */
+.guru-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.leader-section {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.siswa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* === CARD === */
+.profile-card {
+  background: linear-gradient(145deg,#1b1b1b,#111);
+  border-radius: 18px;
+  padding: 14px 10px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  transition: transform .4s ease, box-shadow .4s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp .6s ease forwards;
+  opacity: 0;
+}
+
+/* animasi muncul satu-satu */
+.profile-card:nth-child(1){animation-delay:.1s}
+.profile-card:nth-child(2){animation-delay:.2s}
+.profile-card:nth-child(3){animation-delay:.3s}
+.profile-card:nth-child(4){animation-delay:.4s}
+.profile-card:nth-child(5){animation-delay:.5s}
+
+.profile-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,255,170,.25);
+}
+
+/* === FOTO BULAT & NORMAL === */
+.profile-card img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #00ffae;
+  margin-bottom: 8px;
+}
+
+/* guru lebih besar */
+.profile-card.guru img {
+  width: 110px;
+  height: 110px;
+}
+
+/* === TEKS === */
+.profile-card h3 {
+  font-size: 14px;
+  margin: 4px 0;
+  font-weight: 700;
+}
+
+.profile-card p {
+  font-size: 12px;
+  color: #00ffae;
+  margin-bottom: 6px;
+}
+
+.profile-card span {
+  font-size: 11px;
+  display: block;
+  opacity: .9;
+}
+
+/* ==============================
+   ICON OTOMATIS DARI HOBI
+============================== */
+.profile-card span::before {
+  margin-right: 4px;
+}
+
+.profile-card span:contains("musik")::before { content:"🎵"; }
+.profile-card span:contains("Membaca")::before { content:"📚"; }
+.profile-card span:contains("Coding")::before { content:"💻"; }
+.profile-card span:contains("Olahraga")::before { content:"⚽"; }
+.profile-card span:contains("Masak")::before { content:"🍳"; }
+.profile-card span:contains("Renang")::before { content:"🏊"; }
+.profile-card span:contains("Tidur")::before { content:"😴"; }
+
+/* ==============================
+   FLIP EFFECT (TAP HP)
+   TANPA MEMBALIK TEKS
+============================== */
+.profile-card::after {
+  content: "👆 Tap";
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 10px;
+  opacity: .5;
+}
+
+/* ==============================
+   RESPONSIVE HP
+============================== */
+@media (max-width: 768px) {
+
+  .siswa-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .leader-section {
+    gap: 12px;
+  }
+
+  .profile-card img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .profile-card.guru img {
+    width: 95px;
+    height: 95px;
+  }
+}
+
+/* ==============================
+   ANIMASI
+============================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* CONTROL BAR */
+.control-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.control-bar input,
+.control-bar select,
+.control-bar button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* PROFILE CARD */
+.profile-card {
+  background: #111;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  animation: fadeUp .6s ease forwards;
+}
+
+.profile-card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.detail-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #7a0000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #111;
+  padding: 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* DARK MODE */
+.light body {
+  background: #f4f4f4;
+  color: #000;
+}
+
+/* ANIMASI */
+@keyframes fadeUp {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* default: search hanya untuk siswa */
+#siswaControls {
+  display: flex;
+}
+
+/* hidden */
+.hide {
+  display: none !important;
+}
+
+
+
+/* ===============================
+   STRUKTUR KELAS RESPONSIVE FIX
+=============================== */
+
+/* OVERLAY */
+.struktur-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* CONTAINER */
+.struktur-container {
+  background: linear-gradient(180deg,#ffe9f2,#eef3ff);
+  width: min(95vw, 900px);   /* 🔑 FLEXIBLE */
+  max-height: 92vh;          /* 🔑 TIDAK KELEBIHAN */
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: clamp(14px, 4vw, 26px);
+  box-sizing: border-box;
+}
+
+/* TITLE */
+.struktur-title {
+  text-align: center;
+  font-size: clamp(18px, 5vw, 26px);
+  margin-bottom: 18px;
+}
+.struktur-title span {
+  color: #b00000;
+  font-weight: bold;
+}
+
+/* ROW SYSTEM */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.row.center {
+  justify-content: center;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: clamp(10px, 3vw, 16px);
+  text-align: center;
+  font-size: clamp(12px, 3.5vw, 14px);
+  line-height: 1.4;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transition: transform .25s ease;
+}
+
+.card b {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(13px, 4vw, 15px);
+}
+
+/* WALI KHUSUS */
+.card.wali {
+  grid-column: 1 / -1;
+  background: #ffe28a;
+  font-weight: bold;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: sticky;
+  top: 0;
+  float: right;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===============================
+   MOBILE EXTRA OPTIMIZATION
+=============================== */
+@media (max-width: 600px) {
+
+  .struktur-container {
+    width: 94vw;
+    max-height: 94vh;
+    border-radius: 14px;
+  }
+
+  .row {
+    grid-template-columns: repeat(2, 1fr); /* 🔑 2 kolom */
+  }
+
+  .row.center {
+    grid-template-columns: 1fr; /* wali & ketua rapi */
+  }
+
+  .card {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
+/* ===============================
+   CLOSE BUTTON PINDAH KE KIRI
+=============================== */
+.close-btn {
+  position: sticky;
+  top: 8px;
+  left: 8px;
+  float: left;
+  font-size: 22px;
+  z-index: 10;
+}
+
+/* ===============================
+   STRUKTUR BAR (ICON 📋)
+=============================== */
+.struktur-bar {
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+=============================== */
+@media (max-width: 600px) {
+
+  /* tombol close lebih kecil */
+  .close-btn {
+    font-size: 18px;
+    top: 6px;
+    left: 6px;
+  }
+
+  /* icon struktur lebih kecil */
+  .struktur-bar {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+}
+
+
+/* ===============================
+   DEFAULT DESKTOP (AMAN)
+=============================== */
+
+/* LOGO BOEDI LUHUR */
+.slide-banner img {
+  width: 48px;
+  height: auto;
+}
+
+.slide-banner span {
+  font-size: 16px;
+}
+
+/* PLAYLIST ZESTASIA */
+.playlist-bar {
+  font-size: 14px;
+}
+
+.music-icon {
+  font-size: 18px;
+}
+
+/* INSTAGRAM */
+.ig-float img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+
+/* ===============================
+   MOBILE RESPONSIVE
+=============================== */
+@media (max-width: 600px) {
+
+  /* ===== LOGO BOEDI LUHUR ===== */
+  .slide-banner {
+    padding: 6px 10px;
+  }
+
+  .slide-banner img {
+    width: 28px; /* logo mengecil */
+  }
+
+  .slide-banner span {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== PLAYLIST ZESTASIA ===== */
+  .playlist-bar {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .music-icon {
+    font-size: 14px;
+  }
+
+  .playlist-text {
+    font-size: 11px;
+  }
+
+  /* ===== INSTAGRAM ===== */
+  .ig-float img {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* efek tap biar hidup */
+  .playlist-bar:active,
+  .ig-float:active,
+  .slide-banner:active {
+    transform: scale(0.92);
+  }
+}
+
+
+/* ===============================
+   ANIMASI DASAR
+=============================== */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 6px rgba(0,255,150,.4); }
+  50% { box-shadow: 0 0 14px rgba(0,255,150,.9); }
+  100% { box-shadow: 0 0 6px rgba(0,255,150,.4); }
+}
+
+
+/* ===============================
+   MOBILE PREMIUM MODE
+===============================
+
+
+.logo-zes{
+  border-radius: 50%;
+  width : 100px;
+  height : 100px;
+  object-fit: cover
+}

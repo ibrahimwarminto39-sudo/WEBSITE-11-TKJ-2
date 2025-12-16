@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="icon" href="tsz.png.jpg" class="logo-zes">
+  <meta charset="UTF-8">
+  <title>ZESTASIA CLASS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- WELCOME SCREEN -->
+<div class="welcome-screen" id="welcomeScreen">
+  <h1 class="welcome-text">
+    <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span>
+    <br>
+    <span>T</span><span>O</span>
+    <br>
+    <span>Z</span><span>E</span><span>S</span><span>T</span><span>A</span><span>S</span><span>I</span><span>A</span>
+    <br>
+    <span>C</span><span>L</span><span>A</span><span>S</span><span>S</span>
+  </h1>
+</div>
+  <!-- HERO -->
+  <header class="hero">
+   <h1 class="glitch" data-text="ZESTASIA">ZESTASIA</h1>
+   <!-- LOGO KELAS BULAT -->
+    <!-- BACKGROUND GALAKSI -->
+<div class="bg-galaxy">
+
+  <!-- TRANSISI SIANG MALAM -->
+  <div class="sky-day"></div>
+  <div class="sky-night"></div>
+
+  <!-- BINTANG -->
+  <div class="stars stars-small"></div>
+  <div class="stars stars-medium"></div>
+  <div class="stars stars-big"></div>
+
+  <!-- METEOR HUJAN -->
+  <span class="meteor"></span>
+  <span class="meteor"></span>
+  <span class="meteor"></span>
+  <span class="meteor"></span>
+
+</div>
+
+<div class="class-logo">
+  <img src="tsz.png.jpg" alt="Logo Zestasia">
+</div>
+
+
+    <p>Kelas Penuh Cerita • Kenangan • Kebersamaan</p>
+
+    <!--LOGO IG-->
+    <!-- ICON INSTAGRAM -->
+<a href="https://instagram.com/zestasia.class"
+   target="_blank"
+   class="ig-float"
+   aria-label="Instagram Zestasia Class">
+  <img src="OIP (1).webp" alt="Instagram">
+</a>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <button class="nav-item" onclick="showPage('siswa', this)">Siswa</button>
+      <button class="nav-item" onclick="showPage('piket', this)">Jadwal Piket</button>
+      <button class="nav-item" onclick="showPage('pelajaran', this)">Jadwal Pelajaran</button>
+    </nav>
+  </header>
+
+  <!-- HALAMAN -->
+  <main class="content">
+
+    <!-- CONTROL BAR -->
+<div class="control-bar" id="siswaControls">
+  <input type="text" id="searchInput" placeholder="Cari nama siswa...">
+ 
+  <select id="filterHobi">
+    <option value="all">Semua Hobi</option>
+    <option value="musik">🎧 Musik</option>
+    <option value="membaca">📚 Membaca</option>
+    <option value="olahraga">⚽ Olahraga</option>
+    <option value="memasak">🍳 Memasak</option>
+    <option value="desain">🎨 Desain</option>
+  </select>
+
+  <button id="sortAZ">A–Z</button>
+  <button id="sortZA">Z–A</button>
+
+  <button id="toggleMode">🌙</button>
+</div>
+<!-- MODAL -->
+<div id="profileModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modalImg">
+    <h3 id="modalName"></h3>
+    <p id="modalRole"></p>
+    <p id="modalDetail"></p>
+  </div>
+</div>
+
+
+    <!-- SISWA -->
+   <section id="siswa" class="page active">
+  <h2>Data Kelas Zestasia Class</h2>
+
+  <!-- GURU -->
+  <div class="guru-section">
+    <div class="profile-card guru">
+      <img src="absen/bu afi.jpg">
+      <h3>Afifah Nurul Aini</h3>
+      <p>Wali Kelas</p>
+      <span>Mata Pelajaran  : Sejarah</span>
+    </div>
+  </div>
+
+  <!-- KETUA & WAKIL -->
+  <div class="leader-section">
+    <div class="profile-card">
+      <img src="absen/cina.jpg">
+      <h3>Irsyad Nurrouf</h3>
+      <p>Ketua Kelas</p>
+      <span>Hobi: Mendengarkan musik</span><br>
+      <span>cita-cita :hidup di jepang</span><br>
+      <span>Mapel Favorit : B.jepang</span>
+    </div>
+
+    <div class="profile-card">
+      <img src="absen/8.jpg">
+      <h3>Ibrahim Warminto</h3>
+      <p>Wakil Ketua</p>
+      <span>Hobi: MAKAN</span><br>
+      <span>Cita-cita : AGEN CAI</span><br>
+      <span>Mapel Faforit  : Matematika</span>
+    </div>
+  </div>
+
+  <div class="siswa-grid">
+
+  <div class="profile-card">
+    <img src="absen/ojan.jpg">
+    <h3>Ahmad Fauzan</h3>
+    <p>Siswa</p>
+    <span>Hobi: Menulis</span>
+    <br>
+    <span>Cita-cita: Pria karir</span>
+    <br>
+    <span>Mapel Favorit: B.inggris</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/amel.jpg">
+    <h3>Siti amelia</h3>
+    <p>Siswa</p>
+    <span>Hobi: Berenang</span><br>
+    <span>Cita-cita: Wanita karir</span><br>
+    <span>Mapel Favorit: Matematika</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/23.jpg">
+    <h3>Nurlia</h3>
+    <p>Siswa</p>
+    <span>Hobi: Melukis</span><br>
+    <span>Cita-cita: Desainer</span><br>
+    <span>Mapel Favorit: PP</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/habibi.jpg">
+    <h3>Habibie Syahbani</h3>
+    <p>Siswa</p>
+    <span>Hobi: Membaca</span><br>
+    <span>Cita-cita: Pengusaha</span><br>
+    <span>Mapel Favorit: WAN</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/5.jpg">
+    <h3>Aska Fabian</h3>
+    <p>Siswa</p>
+    <span>Hobi: Masak</span>
+    <br>
+    <span>Cita-cita: Pilot</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/xz.jpg">
+    <h3>Alif Faturahman</h3>
+    <p>Siswa</p>
+    <span>Hobi: Menonton Film</span><br>
+    <span>Cita-cita: Bekerja Di Jepang</span><br>
+    <span>Mapel Favorit: B.jepang</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/absen 12.jpg">
+    <h3>Isma Wati</h3>
+    <p>Siswa</p>
+    <span>Hobi: Membaca</span><br>
+    <span>Cita-cita: Wanita Karir</span><br>
+    <span>Mapel Favorit: Bahasa Jepang</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/angi.jpg">
+    <h3>Anggina Putri</h3>
+    <p>Siswa</p>
+    <span>Hobi: Membaca</span><br>
+    <span>Cita-cita: Wanita Karir</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/9.jpg"> 
+    <h3>Iik nurul fadilah</h3>
+    <p>Siswa</p>
+    <span>Hobi: Dengerin Musik</span>
+    <br>
+    <span>Cita-cita: Hakim</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/10.jpg">
+    <h3>Irda tussyifa</h3>
+    <p>Siswa</p>
+    <span>Hobi: Memasak</span><br>
+    <span>Cita-cita: Menjadi Orang Sukses</span><br>
+    <span>Mapel Favorit: Matematika</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/nuril.jpg">
+    <h3>Muhammad Nuril Lail</h3>
+    <p>Siswa</p>
+    <span>Hobi: Mendengarkan musik</span><br>
+    <span>Cita-cita: Masinis</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/16.jpg">
+    <h3>M.Alvian Nur</h3>
+    <p>Siswa</p>
+    <span>Hobi: Memasak</span><br>
+    <span>Cita-cita: Pemain Sepak Bola</span><br>
+    <span>Mapel Favorit: PKK</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/14.jpg">
+    <h3>Izzati Jahroh Finayah</h3>
+    <p>Siswa</p>
+    <span>Hobi: Renang</span><br>
+    <span>Cita-cita: Polwan</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/17.jpg">
+    <h3>M.Arkan akbar alifi</h3>
+    <p>Siswa</p>
+    <span>Hobi: Menggabar</span><br>
+    <span>Cita-cita: Pelukis</span><br>
+    <span>Mapel Favorit: B.inggris</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/28.jpg">
+    <h3>Vinka Nurainin</h3>
+    <p>Siswa</p>
+    <span>Hobi: Tidur</span><br>
+    <span>Cita-cita: Jadi kaya</span><br>
+    <span>Mapel Favorit: Mapil</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/muhidin.jpg">
+    <h3>Muhidin Ardiansyah</h3>
+    <p>Siswa</p>
+    <span>Hobi: Mancing</span><br>
+    <span>Cita-cita: Pemancing</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/faiz.jpg">
+    <h3>M.faiz Albani</h3>
+    <p>Siswa</p>
+    <span>Hobi: Desain</span><br>
+    <span>Cita-cita: Desainer Grafis</span><br>
+    <span>Mapel Favorit: Informatika</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/yoga.jpg">
+    <h3>Yoga Aditya</h3>
+    <p>Siswa</p>
+    <span>Hobi: Membaca Buku</span><br>
+    <span>Cita-cita: Writter</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/19.jpg">
+    <h3>M.Haydar Lutfi</h3>
+    <p>Siswa</p>
+    <span>Hobi:Membaca</span><br>
+    <span>Cita-cita: Pengusaha</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/24.jpg">
+    <h3>Rohman Siagian</h3>
+    <p>Siswa</p>
+    <span>Hobi: Bermain alat musik</span><br>
+    <span>Cita-cita: Programmer</span><br>
+    <span>Mapel Favorit: Matematika</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/21.jpg">
+    <h3>M.Vicky Nugraha</h3>
+    <p>Siswa</p>
+    <span>Hobi: Olahraga</span><br>
+    <span>Cita-cita: Brimob</span><br>
+    <span>Mapel Favorit: B.jepang</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/izati.jpg">
+    <h3>Itsnaini Dewi Prima</h3>
+    <p>Siswa</p>
+    <span>Hobi: Coding</span><br>
+    <span>Cita-cita: Software Engineer</span><br>
+    <span>Mapel Favorit: Informatika</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/suci.jpg">
+    <h3>Suci Febriyanti</h3>
+    <p>Siswa</p>
+    <span>Hobi: Membaca Buku</span><br>
+    <span>Cita-cita: Koreografer</span><br>
+    <span>Mapel Favorit: Seni Budaya</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/15.jpg">
+    <h3>Jihan Hisanatul Husna</h3>
+    <p>Siswi</p>
+    <span>Hobi: Catur</span><br>
+    <span>Cita-cita: Atlet Catur</span><br>
+    <span>Mapel Favorit: Matematika</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/25.jpg">
+    <h3>Sarrah Rahmawati</h3>
+    <p>Siswi</p>
+    <span>Hobi: Memasak</span><br>
+    <span>Cita-cita: Perawat</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/cyz.jpg">
+    <h3>Almira Julia Putri</h3>
+    <p>Siswi</p>
+    <span>Hobi: Baca Buku</span><br>
+    <span>Cita-cita: Wanita karir</span><br>
+    <span>Mapel Favorit: Sejarah</span>
+  </div>
+
+  <div class="profile-card">
+    <img src="absen/ABAS.jpg">
+    <h3>Hadyan Bagaskara</h3>
+    <p>Siswa</p>
+    <span>Hobi: Olahraga</span><br>
+    <span>Cita-cita: Sukses>
+    <span>Mapel Favorit: Bahasa Indonesia</span>
+  </div>
+
+  </div>
+   </section>
+
+    <!-- JADWAL PIKET -->
+<!-- JADWAL PIKET -->
+<section id="piket" class="page">
+  <h2>JADWAL PIKET KELAS</h2>
+
+  <ul class="list">
+    <li class="day senin">
+      <strong>SENIN</strong><br>
+      Fauzan, Irda, Irsayd, Itsnaini, Vicky, Amellia
+    </li>
+
+    <li class="day selasa">
+      <strong>SELASA</strong><br>
+      Nurlia, Bhagas, Isma, Arkan, Muhidin, Suci
+    </li>
+
+    <li class="day rabu">
+      <strong>RABU</strong><br>
+      Almira, Ibrahim, Alvian, Faiz, Alif, Vinka
+    </li>
+
+    <li class="day kamis">
+      <strong>KAMIS</strong><br>
+      Anggi, Iik, Izzati, Haidar, Rohman, Yoga
+    </li>
+
+    <li class="day jumat">
+      <strong>JUMAT</strong><br>
+      Aska, Habibie, Jihan, Nuril, Sarrah, Wardah
+    </li>
+  </ul>
+</section>
+
+
+    <!-- JADWAL PELAJARAN -->
+    <!-- JADWAL PELAJARAN -->
+<section id="pelajaran" class="page">
+  <h2>Jadwal Pelajaran</h2>
+  <ul class="list">
+    <li><strong>Senin</strong> – Sejarah Indonesia, Bahasa Inggris ,TJBL, ASJ, Bahasa Indonesia</li>
+    <li><strong>Selasa</strong> – Matematika, PKK, WAN, ASJ</li>
+    <li><strong>Rabu</strong> – Matematika, PKK,CODING ,BK , PP</li>
+    <li><strong>Kamis</strong> – PABP, BAHASA JEPANG,AIJ,BAHASA INDONESIA</li>
+    <li><strong>Jumat</strong> – PJOK, BAHASA Inggris, MAPIL</li>
+</section>
+
+
+
+  </main>
+
+  <!-- GALERI -->
+  <!-- ALBUM KELAS -->
+<section class="album-section">
+  <h2 class="album-title">📸 Album Kelas Zestasia</h2>
+
+  <div class="album-frame">
+    <button class="nav-btn left" onclick="prevPhoto()">❮</button>
+
+    <div class="photo-wrapper">
+      <img id="albumPhoto" src="img/foto1.jpg" alt="Album Kelas">
+    </div>
+
+    <button class="nav-btn right" onclick="nextPhoto()">❯</button>
+  </div>
+
+  <p class="album-info">
+    Kenangan kelas yang tidak akan terlupakan ✨
+  </p>
+</section>
+<!-- ===============================
+     KRITIK & SARAN
+================================ -->
+<section class="feedback-section">
+  <h2 class="feedback-title">Kritik & Saran</h2>
+
+  <!-- FORM INPUT -->
+  <div class="feedback-form">
+    <input type="text" id="nama" placeholder="Nama (boleh dikosongkan)">
+    <textarea id="pesan" placeholder="Tulis kritik atau saran..." rows="4"></textarea>
+    <button onclick="kirimPesan()">Kirim Pesan</button>
+  </div>
+
+  <!-- PENAMPUNG PESAN -->
+  <div class="feedback-box" id="feedbackBox">
+    <h3>Pesan Masuk</h3>
+  </div>
+</section>
+
+
+<!--Playlist-->
+<!-- PLAYLIST BAR KIRI -->
+<a href="https://open.spotify.com/playlist/2MWFIqESFg64IYpDEFxV99?si=l5FM7dqiQU-vMuYyDWeYIA"
+   target="_blank"
+   class="playlist-bar"
+   aria-label="Playlist Zestasia">
+
+  <span class="music-icon">🎵</span>
+  <span class="playlist-text">PLAYLIST ZESTASIA</span>
+
+</a>
+
+
+<!-- BAR KIRI BAWAH -->
+<div class="struktur-bar" onclick="openStrukturV3()">
+  📋 STRUKTUR KELAS
+</div>
+
+<!-- OVERLAY -->
+<div class="struktur-overlay" id="strukturV3">
+  <div class="struktur-container">
+    <button class="close-btn" onclick="closeStrukturV3()">✖</button>
+
+    <h2 class="struktur-title">
+      STRUKTUR KELAS XI TKJ 2<br>
+      <span>ZESTASIA</span>
+    </h2>
+
+    <!-- WALI -->
+    <div class="row center">
+      <div class="card wali">👩‍🏫 Wali Kelas<br><b>Ibu Afifah Nurul Aini, S.Pd</b></div>
+    </div>
+
+    <!-- KETUA -->
+    <div class="row center">
+      <div class="card">⭐ Ketua Kelas<br><b>Irsyad Nurro'uf</b></div>
+      <div class="card">⭐ Wakil Ketua<br><b>Ibrahim Warminto</b></div>
+    </div>
+
+    <!-- SEKRETARIS & BENDAHARA -->
+    <div class="row">
+      <div class="card">📚 Sekretaris 1<br><b>Jihan Hisnatul Husna</b></div>
+      <div class="card">📚 Sekretaris 2<br><b>Rohman Siagian</b></div>
+      <div class="card">💰 Bendahara 1<br><b>Siti Amelia</b></div>
+      <div class="card">💰 Bendahara 2<br><b>Ilik Nur Fadilah</b></div>
+    </div>
+
+    <!-- BIDANG -->
+    <div class="row">
+      <div class="card">🛡️ Keamanan<br><b>M Faiz Albani<br>Muhidin Ardansyah</b></div>
+      <div class="card">🧹 Kebersihan<br><b>Isma Wati<br>Vinka Nuraini</b></div>
+      <div class="card">🎨 Kesenian<br><b>Yoga Aditya<br>Ahmad Fauzan</b></div>
+      <div class="card">📢 Kerohanian<br><b>M Arkan Akbar<br>Habibie Syahbani F</b></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BANNER LOGO + TEKS -->
+<div id="slideBanner" class="slide-banner">
+  <img src="ds-removebg-preview.png" alt="Logo Sekolah">
+  <span>SMK BOEDI LUHUR</span>
+</div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
